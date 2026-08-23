@@ -9,7 +9,7 @@ export default function Footer() {
           </p>
         </div>
         <a
-          href="#lead-form"
+          href="/#lead-form"
           className="inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition-transform hover:-translate-y-0.5"
         >
           2 Spots Left →
@@ -18,7 +18,13 @@ export default function Footer() {
       <div className="border-t border-black/5">
         <div className="section flex flex-col gap-2 py-6 text-sm text-muted md:flex-row md:items-center md:justify-between">
           <span>© {new Date().getFullYear()} Pixelsate. All rights reserved.</span>
-          <span>Only 5 clients at a time. On purpose.</span>
+          <div className="flex items-center gap-4">
+            <a href="/privacy-policy" className="transition-colors hover:text-ink">
+              Privacy Policy
+            </a>
+            <span className="hidden md:inline">·</span>
+            <span>Only 5 clients at a time. On purpose.</span>
+          </div>
         </div>
       </div>
     </footer>
