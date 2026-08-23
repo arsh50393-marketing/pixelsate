@@ -41,8 +41,8 @@ export default function LeadForm() {
       next.email = "Enter a valid email — like name@company.com";
     }
     const digits = (data.phone ?? "").replace(/\D/g, "");
-    if (digits.length < 6 || digits.length > 15) {
-      next.phone = "Enter a valid phone number";
+    if (digits.length < 10 || digits.length > 15) {
+      next.phone = "Enter a valid phone number (at least 10 digits)";
     }
 
     setErrors(next);

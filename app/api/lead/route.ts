@@ -33,9 +33,9 @@ export async function POST(req: Request) {
   if (!EMAIL_RE.test(email)) {
     return NextResponse.json({ error: "A valid email is required." }, { status: 400 });
   }
-  if (phoneDigits.length < 6 || phoneDigits.length > 15) {
+  if (phoneDigits.length < 10 || phoneDigits.length > 15) {
     return NextResponse.json(
-      { error: "A valid phone number is required." },
+      { error: "A valid phone number (at least 10 digits) is required." },
       { status: 400 }
     );
   }
