@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* keep anchored sections clear of the sticky header */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+body {
+  background-color: theme("colors.paper");
+  color: theme("colors.ink");
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.marquee-group:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+@keyframes fadeSwap {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-swap {
+  animation: fadeSwap 0.35s ease-out;
+}
+
+@layer components {
+  .section {
+    @apply mx-auto w-full max-w-content px-6 py-12 md:py-16;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-accent;
+  }
+  .h-display {
+    @apply text-3xl font-semibold capitalize leading-tight tracking-tight md:text-5xl;
+  }
+  .sub {
+    @apply mt-3 max-w-2xl text-lg text-muted md:text-xl;
+  }
+}
